@@ -777,8 +777,7 @@ MonoBehaviour:
   Below: 0
   Left: 0
   Right: 0
-  MaxAscendAngle: 65
-  MaxDecendAngle: 75
+  MaxSlopeAngle: 65
   AscendingSlope: 0
   DecendingSlope: 0
   slopeAngle: 0
@@ -862,7 +861,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Force:
-    x: 5
+    x: 10
     y: 10
 --- !u!114 &620974897
 MonoBehaviour:
