@@ -6,5 +6,6 @@ namespace CharacterController2D
     public class Velocity : MonoBehaviour
     {
         public float2 Value = float2.zero;
+        public float2 Delta = float2.zero;
     }
 }

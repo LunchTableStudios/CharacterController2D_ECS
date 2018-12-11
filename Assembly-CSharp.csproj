@@ -55,12 +55,10 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\CharacterController2D\Components\CollisionData.cs" />
      <Compile Include="Assets\Scripts\CharacterController2D\Components\Gravity.cs" />
-     <Compile Include="Assets\Scripts\CharacterController2D\Components\Movement.cs" />
      <Compile Include="Assets\Scripts\CharacterController2D\Components\Velocity.cs" />
      <Compile Include="Assets\Scripts\CharacterController2D\Systems\CollisionSystem.cs" />
      <Compile Include="Assets\Scripts\CharacterController2D\Systems\GravitySystem.cs" />
-     <Compile Include="Assets\Scripts\CharacterController2D\Systems\MovementSystem.cs" />
-     <Compile Include="Assets\Scripts\CharacterController2D\Systems\VelocitySystem.cs" />
+     <Compile Include="Assets\Scripts\CharacterController2D\Systems\TransformSystem.cs" />
      <Compile Include="Assets\Scripts\Debug\Components\DebugPlayerInput.cs" />
      <Compile Include="Assets\Scripts\Debug\Components\DebugPlayerJumpForce.cs" />
      <Compile Include="Assets\Scripts\Debug\Components\DebugPlayerMoveSpeed.cs" />
@@ -71,18 +69,6 @@
      <Compile Include="Assets\Scripts\Debug\Systems\DebugPlayerMoveSystem.cs" />
      <Compile Include="Assets\Scripts\Debug\Systems\WallClingingSystem.cs" />
      <Compile Include="Assets\Scripts\Debug\Systems\WallJumpSystem.cs" />
- <Reference Include="UnityEditor.StandardEvents">
- <HintPath>/Users/acapobianchi/Documents/Work/Unity/CharacterController2D_ECS/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
- </Reference>
- <Reference Include="Unity.TextMeshPro.Editor">
- <HintPath>/Users/acapobianchi/Documents/Work/Unity/CharacterController2D_ECS/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
- </Reference>
- <Reference Include="Unity.PackageManagerUI.Editor">
- <HintPath>/Users/acapobianchi/Documents/Work/Unity/CharacterController2D_ECS/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
- </Reference>
- <Reference Include="Unity.TextMeshPro">
- <HintPath>/Users/acapobianchi/Documents/Work/Unity/CharacterController2D_ECS/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
- </Reference>
  <Reference Include="Unity.Entities.Properties">
  <HintPath>/Users/acapobianchi/Documents/Work/Unity/CharacterController2D_ECS/Library/ScriptAssemblies/Unity.Entities.Properties.dll</HintPath>
  </Reference>
@@ -104,8 +90,17 @@
  <Reference Include="Unity.Collections">
  <HintPath>/Users/acapobianchi/Documents/Work/Unity/CharacterController2D_ECS/Library/ScriptAssemblies/Unity.Collections.dll</HintPath>
  </Reference>
+ <Reference Include="UnityEditor.StandardEvents">
+ <HintPath>/Users/acapobianchi/Documents/Work/Unity/CharacterController2D_ECS/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.TextMeshPro.Editor">
+ <HintPath>/Users/acapobianchi/Documents/Work/Unity/CharacterController2D_ECS/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+ </Reference>
  <Reference Include="Unity.Burst">
  <HintPath>/Users/acapobianchi/Documents/Work/Unity/CharacterController2D_ECS/Library/ScriptAssemblies/Unity.Burst.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.PackageManagerUI.Editor">
+ <HintPath>/Users/acapobianchi/Documents/Work/Unity/CharacterController2D_ECS/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Rendering.Hybrid">
  <HintPath>/Users/acapobianchi/Documents/Work/Unity/CharacterController2D_ECS/Library/ScriptAssemblies/Unity.Rendering.Hybrid.dll</HintPath>
@@ -133,6 +128,9 @@
  </Reference>
  <Reference Include="Unity.Mathematics.Editor">
  <HintPath>/Users/acapobianchi/Documents/Work/Unity/CharacterController2D_ECS/Library/ScriptAssemblies/Unity.Mathematics.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.TextMeshPro">
+ <HintPath>/Users/acapobianchi/Documents/Work/Unity/CharacterController2D_ECS/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Transforms.Hybrid">
  <HintPath>/Users/acapobianchi/Documents/Work/Unity/CharacterController2D_ECS/Library/ScriptAssemblies/Unity.Transforms.Hybrid.dll</HintPath>
@@ -341,11 +339,11 @@
  <Reference Include="UnityEngine.Analytics">
  <HintPath>/Users/acapobianchi/Library/Unity/cache/packages/packages.unity.com/com.unity.analytics@2.0.16/UnityEngine.Analytics.dll</HintPath>
  </Reference>
- <Reference Include="UnityEngine.StandardEvents">
- <HintPath>/Users/acapobianchi/Library/Unity/cache/packages/packages.unity.com/com.unity.standardevents@1.0.13/UnityEngine.StandardEvents.dll</HintPath>
- </Reference>
  <Reference Include="System.Runtime.CompilerServices.Unsafe">
  <HintPath>/Users/acapobianchi/Library/Unity/cache/packages/packages.unity.com/com.unity.collections@0.0.9-preview.10/System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.StandardEvents">
+ <HintPath>/Users/acapobianchi/Library/Unity/cache/packages/packages.unity.com/com.unity.standardevents@1.0.13/UnityEngine.StandardEvents.dll</HintPath>
  </Reference>
  <Reference Include="mscorlib">
  <HintPath>/Applications/Unity/Hub/Editor/2018.2.14f1/Unity.app/Contents/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>

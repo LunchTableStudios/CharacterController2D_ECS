@@ -3,14 +3,13 @@ namespace CharacterController2D
     using UnityEngine;
     using Unity.Entities;
     using Unity.Mathematics;
-
-    [ UpdateAfter( typeof( GravitySystem ) ) ]
-    [ UpdateBefore( typeof( MovementSystem ) ) ]
+    
+    [ UpdateBefore( typeof( TransformSystem ) ) ]
     public class CollisionSystem : ComponentSystem
     {
         private struct CollidableEntityFilter
         {
-            public Movement MovementComponent;
+            public Velocity VelocityComponent;
             public CollisionData CollisionComponent;
             public readonly BoxCollider2D ColliderComponent;
         }
@@ -32,16 +31,18 @@ namespace CharacterController2D
 
         protected override void OnUpdate()
         {
+            float deltaTime = Time.deltaTime;
+
             foreach( CollidableEntityFilter entity in GetEntities<CollidableEntityFilter>() )
             {
-                Movement movement = entity.MovementComponent;
+                Velocity velocity = entity.VelocityComponent;
                 CollisionData collisionData = entity.CollisionComponent;
                 BoxCollider2D collider = entity.ColliderComponent;
 
                 collisionData.previousSlopeAngle = collisionData.slopeAngle;
                 ResetCollisionState( collisionData );
 
-                float2 movementDelta = movement.Value;
+                float2 movementDelta = velocity.Value * deltaTime;
 
                 RaycastOrigins raycastOrigins = CalculateRaycastOrigins( collider );
                 RaycastSpacing raycastSpacing = CalculateRaycastSpacing( collider );
@@ -55,7 +56,7 @@ namespace CharacterController2D
                 if( movementDelta.y != 0 )
                     HandleVerticalMovement( ref movementDelta, collider.edgeRadius, collisionData, raycastOrigins, raycastSpacing );
 
-                movement.Value = movementDelta;
+                velocity.Delta = movementDelta;
             }
         }
 
